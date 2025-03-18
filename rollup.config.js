@@ -23,12 +23,13 @@ const getFileList = () => {
 
             return acc || file.startsWith(next);
         }, false)
-  
-        if (stat.isDirectory() && !isExclude)
-            recurseFiles(filePath);
-        else if (file.endsWith(".ts"))
-            results.push(filePath);
 
+        if(isExclude || file.startsWith("_")) return;
+  
+        if (stat.isDirectory()) 
+          recurseFiles(filePath);
+        else if (file.endsWith(".ts")) 
+          results.push(filePath);
       });
     };
   
