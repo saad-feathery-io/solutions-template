@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+      "target": "esnext",
+      "module": "esnext",
+      "moduleResolution": "node",
+      "allowJs": true,
+      "esModuleInterop": true,
+      "typeRoots": ["./src/types"],
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+    },
+    "include": ["src/**/*.ts", "src/**/*.js"],
+    "exclude": ["node_modules", "src/core/**/*"]
+  }
