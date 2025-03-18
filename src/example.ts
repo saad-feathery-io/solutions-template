@@ -1,4 +1,4 @@
-import suh from "example/SomeDependency"
+import suh from "core/SomeDependency"
 
 console.log("Hello world");
 
