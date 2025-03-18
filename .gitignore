@@ -1,0 +1,6 @@
+# gitignore for feathery implementations
+
+node_modules
+
+# don't include build artifacts
+dist

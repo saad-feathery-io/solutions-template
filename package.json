@@ -1,0 +1,16 @@
+{
+  "name": "hiscox",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "28.0.3",
+    "@rollup/plugin-node-resolve": "16.0.1",
+    "@rollup/plugin-typescript": "12.1.2",
+    "rollup": "4.36.0",
+    "tslib": "2.8.1"
+  }
+}
