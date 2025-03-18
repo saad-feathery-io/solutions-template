@@ -6,7 +6,8 @@ import path from "path"
 import fs from "fs";
 
 const excludeDirs = [
-    "core"
+    "_core",
+    "_data"
 ]
 
 const getFileList = () => {
