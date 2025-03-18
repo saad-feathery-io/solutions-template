@@ -4,7 +4,9 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "build": "rollup -c",
+    "dev": "rollup -c --watch"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "28.0.3",
