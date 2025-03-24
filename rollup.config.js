@@ -2,12 +2,14 @@
 import typescript from '@rollup/plugin-typescript';
 import resolve from '@rollup/plugin-node-resolve';
 import addSourceComment from './build/plugin.AddSrcComment.js';
+import addExportStatement from './build/plugin.AddExportStatement.js';
 import path from "path"
 import fs from "fs";
 
 const excludeDirs = [
     "_core",
-    "_data"
+    "_data",
+    "types"
 ]
 
 const getFileList = () => {
@@ -28,7 +30,7 @@ const getFileList = () => {
   
         if (stat.isDirectory()) 
           recurseFiles(filePath);
-        else if (file.endsWith(".ts")) 
+        else if (file.endsWith(".ts") || file.endsWith(".js")) 
           results.push(filePath);
       });
     };
@@ -50,6 +52,7 @@ const buildFileCfg = (file) => {
       },
       plugins: [
         addSourceComment(),
+        addExportStatement(),
         resolve({
             extensions: ['.js', '.ts'],
             moduleDirectories: ["src"]
@@ -58,6 +61,15 @@ const buildFileCfg = (file) => {
           tsconfig: './tsconfig.json',
         }),
       ],
+      onwarn: (warning, warn) => {
+        // You can also filter by message or other properties
+        if (warning.message.includes('TS1375')) {
+          return; // Suppress a specific error message
+        }
+    
+        // For everything else, let Rollup handle the warning
+        warn(warning);
+      },
       watch: {
         clearScreen: false,
       },
